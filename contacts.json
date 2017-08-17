@@ -1,0 +1,44 @@
+{
+        "contacts": [
+                {
+                        "firstName": "Alex",
+                        "secondName": "Karmaz",
+                        "dob": "1/1/1999",
+                        "phone": "+375 44 7624300",
+                        "gender": "male",
+                        "relationship": "Home",
+                        "description": "fdf",
+                        "isFavorite": true
+                },
+                {
+                        "firstName": "Dima",
+                        "secondName": "Ignatenko",
+                        "dob": "1/1/1999",
+                        "phone": "+375 29 5882918",
+                        "gender": "male",
+                        "relationship": "Work",
+                        "description": "fdf",
+                        "isFavorite": true
+                },
+                {
+                        "firstName": "John",
+                        "secondName": "Smit",
+                        "dob": "1/1/1999",
+                        "phone": "5565",
+                        "gender": "male",
+                        "relationship": "Others",
+                        "description": "fdf",
+                        "isFavorite": false
+                },
+                {
+                        "firstName": "Smith",
+                        "secondName": "John",
+                        "dob": "1/1/1999",
+                        "phone": "tryt",
+                        "gender": "female",
+                        "relationship": "Home",
+                        "description": "fdf",
+                        "isFavorite": false
+                }
+        ]
+}

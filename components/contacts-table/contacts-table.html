@@ -1,0 +1,49 @@
+</div>
+    <table class="table">
+        <thead data-ng-hide="!($ctrl.contacts | nameFilter).length">
+            <tr>
+                <th>
+                    Remove
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    DOB
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Favorite
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contact in $ctrl.contacts | nameFilter">
+                <th>
+                    <input type="checkbox" ng-model="$ctrl.selected[contact.id]">
+                </th>
+                <th>
+                    {{contact.firstName + " " + contact.secondName}}
+                </th>
+                <th >
+                    {{contact.dob | date: 'dd.MM.yyyy'}}
+                </th>
+                <th>
+                    {{contact.phone}}
+                </th>
+                <th>
+                    <input type="checkbox" data-ng-model="contact.isFavorite" >
+                </th>
+                <th>
+                   <a class="btn" href="#!edit/{{contact.id}}">Edit</a>
+                </th>
+                <!-- <th>
+                     <button class="btn" data-ng-click="$ctrl.deleteContact(contact.id)">Remove</button>
+                </th> -->
+            </tr>
+        </tbody>
+</div>
+<div data-ng-show="!($ctrl.contacts | nameFilter).length"> The search has not given any results </div> 

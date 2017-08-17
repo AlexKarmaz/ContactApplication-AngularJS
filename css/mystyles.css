@@ -1,0 +1,96 @@
+.search{
+    color: white;
+    margin-top: 3px;
+    display: -webkit-box;
+}
+
+body {
+    padding: 65px;
+}
+
+.card {
+    background-color:#efefef;
+    border: 1px solid black;
+    height:75px;
+    width: 225px;
+    margin-bottom: 20px;
+}
+
+.cardHeader {
+    background-color: #006dcc;
+    font-size:14pt;
+    color:white;
+    padding:5px;
+}
+
+.cardClose {
+    color: white;
+    font-weight:bold;
+    margin-right:5px;
+}
+
+.cardContainer {
+    width:90%;
+}
+
+.cardBody {
+    padding-left: 5px;
+}
+
+ form {
+      width: max-content;
+    }
+
+    form div {
+      margin-top: 1em;
+    }
+
+    label {
+      /* To make sure that all labels have the same size and are properly aligned */
+      display: inline-block;
+      width: 120px;
+      text-align: left;
+    }
+
+    input,
+    textarea {
+      /* To give the same size to all text fields */
+      width: 200px;
+      /* To harmonize the look & feel of text field border */
+      border: 1px solid #999;
+    }
+
+    input:focus,
+    textarea:focus {
+      /* To give a little highlight on active elements */
+      border-color: #000;
+    }
+
+    textarea {
+      /* To properly align multiline text fields with their labels */
+      vertical-align: top;
+      /* To give enough room to type some text */
+      height: 5em;
+      max-width: 200px;
+    }
+
+    .gender {
+      margin-right: 40px;
+    }
+
+    .gender input {
+      width: auto;
+    }
+
+    contact-buttons {
+      float: right;
+      margin-left: 15px;
+    }
+
+    .contact-form-errors{
+        color:red;
+    }
+
+    button a{
+        color:white;
+    }

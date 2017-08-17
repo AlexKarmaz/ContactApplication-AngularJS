@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html data-ng-app="ContactApp">
+
+<head>
+    <title>Contacts Application</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/mystyles.css" rel="stylesheet" />
+</head>
+
+<body >
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand " href="#/">
+                     Contacts Application
+                </a>
+                <ul class="nav nav-pills">
+                    <li><a href="#!allContacts">All Contacts</a></li>
+                    <li><a href="#!favorite">Favorite Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div ng-view></div>
+
+    <div id="footer">
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <div class="container">
+                    <footer>
+                        <div class="row">
+                            <div class="span4">
+                                Created by Karmaz Alex
+                            </div>
+                            <div class="span4">
+                                VK: <a href="https://vk.com/id118371746" target="_blank">@Alex_Karmaz</a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/lib/angular.min.js"></script>
+    <script src="scripts/lib/angular-route.js"></script>
+    <script src="scripts/lib/jquery.min.js"></script>
+
+    <script src="scripts/app.config.js"></script>
+
+    <script src="scripts/services/SearchService.js"></script>
+    <script src="scripts/services/ContactService.js"></script>
+
+    <script src="components/search-bar/search-bar.component.js"></script>
+    <script src="components/search-bar/search-bar.controller.js"></script>
+
+    <script src="components/contacts-table/contacts-table.component.js"></script>
+    <script src="components/contacts-table/contacts-table.controller.js"></script>
+
+    <script src="components/favorite-contacts-list/favorite-contacts-list.component.js"></script>
+    <script src="components/favorite-contacts-list/favorite-contacts-list.controller.js"></script>
+
+    <script src="components/contact-buttons/contact-buttons.component.js"></script>
+    <script src="components/contact-buttons/contact-buttons.controller.js"></script>
+
+    <script src="components/all-contacts/all-contacts.component.js"></script>
+    <script src="components/all-contacts/all-contacts.controller.js"></script>
+
+    <script src="components/add-contact/add-contact.component.js"></script>
+    <script src="components/add-contact/add-contact.controller.js"></script>
+
+    <script src="components/edit-contact/edit-contact.component.js"></script>
+    <script src="components/edit-contact/edit-contact.controller.js"></script>
+
+    <script src="components/add-edit-form/add-edit-form.component.js"></script>
+    <script src="components/add-edit-form/add-edit-form.controller.js"></script>
+         
+    <script src="scripts/nameFilter.js"></script>
+</body>
+
+</html>

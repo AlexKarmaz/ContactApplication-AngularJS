@@ -1,0 +1,11 @@
+<h2>Favorite contacts:</h2>
+ <div data-ng-show="!($ctrl.favoriteContacts | filter:contact.isFavorite=true).length">You don't have any favorite contacts!</div> 
+ <div>
+    <div class="row cardContainer">
+        <div class="span3 card" data-ng-repeat="contact in $ctrl.favoriteContacts | filter:contact.isFavorite=true">
+            <button class="btn close cardClose" data-ng-click="contact.isFavorite=false">&times;</button>
+            <div class="cardHeader">{{contact.firstName + ' ' + contact.secondName}}</div>
+            <div class="cardBody">{{contact.phone}}</div>
+        </div>
+    </div>
+</div> 
