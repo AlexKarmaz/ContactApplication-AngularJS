@@ -23,26 +23,23 @@
         <tbody>
             <tr ng-repeat="contact in $ctrl.contacts | nameFilter">
                 <th>
-                    <input type="checkbox" ng-model="$ctrl.selected[contact.id]">
+                    <input type="checkbox" ng-model="$ctrl.selected[contact.Id]">
                 </th>
                 <th>
-                    {{contact.firstName + " " + contact.secondName}}
+                    {{contact.FirstName + " " + contact.SecondName}}
                 </th>
                 <th >
-                    {{contact.dob | date: 'dd.MM.yyyy'}}
+                    {{contact.Dob | date: 'dd.MM.yyyy'}}
                 </th>
                 <th>
-                    {{contact.phone}}
+                    {{contact.Phone}}
                 </th>
                 <th>
-                    <input type="checkbox" data-ng-model="contact.isFavorite" >
+                    <input type="checkbox" data-ng-model="contact.isFavorite"  data-ng-click="$ctrl.changeFavorite(contact.Id)" >
                 </th>
                 <th>
-                   <a class="btn" href="#!edit/{{contact.id}}">Edit</a>
+                   <a class="btn" href="#!edit/{{contact.Id}}">Edit</a>
                 </th>
-                <!-- <th>
-                     <button class="btn" data-ng-click="$ctrl.deleteContact(contact.id)">Remove</button>
-                </th> -->
             </tr>
         </tbody>
 </div>

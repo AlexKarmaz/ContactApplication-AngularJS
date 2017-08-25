@@ -11,7 +11,9 @@
 
         $ctrl.contactId = ($routeParams.contactId) ? parseInt($routeParams.contactId) : 0;
         if ($ctrl.contactId > 0) {
-            $ctrl.contact = ContactService.getContact($ctrl.contactId);
+            var promiseObj = ContactService.getContact($ctrl.contactId);
+            promiseObj.then(function (value) { $ctrl.contact  = value; 
+            });
         }
 
         $ctrl.cancel = function(){
@@ -20,8 +22,10 @@
 
         $ctrl.saveContact = function () {
             if ($ctrl.isValid) {
-                ContactService.updateContact($ctrl.contact);
-                $location.path('/allContacts');
+                var promiseObj = ContactService.updateContact($ctrl.contact.Id, $ctrl.contact);
+                promiseObj.then(function (value) { $ctrl.result = value;
+                    if($ctrl.result==200){ $location.path('/allContacts');}
+                 });
             }
             else {
                 alert("Check the entered information!");

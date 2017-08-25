@@ -13,14 +13,14 @@
         $ctrl.relationships = ["Work", "Home", "Others"];
 
         $ctrl.contact = {
-            id: false,
-            firstName: "",
-            secondName: "",
-            dob: new Date("0001-01-01"),
-            phone: "",
-            gender: "male",
-            relationship: "Others",
-            description: "",
+            Id: false,
+            FirstName: "",
+            SecondName: "",
+            Dob: new Date("0001-01-01"),
+            Phone: "",
+            Gender: "male",
+            Relationship: "Others",
+            Description: "",
             isFavorite: false
         };
     }

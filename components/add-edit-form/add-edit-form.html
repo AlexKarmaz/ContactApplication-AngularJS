@@ -1,7 +1,7 @@
 <form name="myForm" novalidate>
     <div>
         <label for="fname">First Name</label>
-        <input data-ng-model="$ctrl.contact.firstName" type="text" id="fname" name="firstname" placeholder="Your name.." ng-maxlength="15" required=""/>
+        <input data-ng-model="$ctrl.contact.FirstName" type="text" id="fname" name="firstname" placeholder="Your name.." ng-maxlength="15" required=""/>
         <div class="contact-form-errors" ng-show="myForm.firstname.$touched || myForm.$submitted ">
             <div ng-show="myForm.firstname.$error.required" > Please, enter a contact's first name. </div>
             <div ng-show="myForm.firstname.$error.maxlength"> A first name max length is 15 symbols. </div>
@@ -10,7 +10,7 @@
 
     <div>
         <label for="lname">Last Name</label>
-        <input data-ng-model="$ctrl.contact.secondName" type="text" id="lname" name="lastname" placeholder="Your last name.." ng-maxlength="15" required=""/>
+        <input data-ng-model="$ctrl.contact.SecondName" type="text" id="lname" name="lastname" placeholder="Your last name.." ng-maxlength="15" required=""/>
         <div class="contact-form-errors" ng-show="myForm.lastname.$touched || myForm.$submitted ">
             <div ng-show="myForm.lastname.$error.required"> Please, enter a contact's last name. </div>
             <div ng-show="myForm.lastname.$error.maxlength"> A last name max length is 15 symbols. </div>
@@ -19,7 +19,7 @@
 
     <div>
         <label for="dob">DOB</label>
-        <input data-ng-model="$ctrl.contact.dob" type="date" id="dob" name="dateofbirth" ng-maxlength="$ctrl.nextDay" required=""/>
+        <input data-ng-model="$ctrl.contact.Dob" type="date" id="dob" name="dateofbirth" ng-maxlength="$ctrl.nextDay" required=""/>
         <div class="contact-form-errors" ng-show="myForm.dateofbirth.$touched || myForm.$submitted ">
             <div ng-show="myForm.dateofbirth.$error.required"> Please, enter a contact's birthday. </div>
             <div ng-show="myForm.dateofbirth.$error.maxlength"> Enter the correct date.</div>
@@ -27,7 +27,7 @@
     </div>
     <div>
         <label for="phone">Phone number</label>
-        <input data-ng-model="$ctrl.contact.phone" type="tel" id="phone" name="phonenumber" ng-maxlength="9" ng-pattern="/^[0-9]*$/" required>
+        <input data-ng-model="$ctrl.contact.Phone" type="tel" id="phone" name="phonenumber" ng-maxlength="9" ng-pattern="/^[0-9]*$/" required>
         <div class="contact-form-errors" ng-show="myForm.phonenumber.$touched || myForm.$submitted ">
             <div ng-show="myForm.phonenumber.$error.required"> Please, enter a contact's phone. </div>
             <div ng-show="myForm.phonenumber.$error.maxlength"> A phone max length is 9 symbols..</div>
@@ -36,18 +36,18 @@
 
     <div>
         <label for="gender">Gender</label>
-        <span class="gender"><input data-ng-model="$ctrl.contact.gender" type="radio" value="male" name="gender">Male</span>
-        <span class="gender"><input data-ng-model="$ctrl.contact.gender" type="radio" value="female" name="gender">Female</span>
+        <span class="gender"><input data-ng-model="$ctrl.contact.Gender" type="radio" value="male" name="gender">Male</span>
+        <span class="gender"><input data-ng-model="$ctrl.contact.Gender" type="radio" value="female" name="gender">Female</span>
     </div>
 
     <div>
         <label for="relationship">Relationship</label>
-        <select data-ng-model="$ctrl.contact.relationship" data-ng-options="x for x in $ctrl.relationships"></select>
+        <select data-ng-model="$ctrl.contact.Relationship" data-ng-options="x for x in $ctrl.relationships"></select>
     </div>
 
     <div>
         <label for="description">Description</label>
-        <textarea data-ng-model="$ctrl.contact.description" id="description" name="description" placeholder="Write something.."></textarea>
+        <textarea data-ng-model="$ctrl.contact.Description" id="description" name="description" placeholder="Write something.."></textarea>
     </div>
     <span style="display:none">{{$ctrl.isValid=myForm.$valid}}</span>
 </form>

@@ -1,14 +1,3 @@
-// contactApp.filter('nameFilter', function(){
-//     return function(contact){
-//         if(contact === undefined){
-//             return false;
-//         }
-//         else{
-//             return contact.firstName.include(filter.name) || contact.secondName.include(filter.name);
-//         }
-//     }
-// })
-
 (function () {
     'use strict';
 
@@ -29,7 +18,7 @@
             if (searchString === undefined || searchString == "") { return contacts;}
 
             for (var i = 0; i < contacts.length; i++) {
-                if (angular.lowercase(contacts[i].firstName).includes(angular.lowercase(searchString)) || angular.lowercase(contacts[i].secondName).includes(angular.lowercase(searchString))) {
+                if (angular.lowercase(contacts[i].FirstName).includes(angular.lowercase(searchString)) || angular.lowercase(contacts[i].SecondName).includes(angular.lowercase(searchString))) {
                     filteredContacts.push(contacts[i]);
                 }
             }

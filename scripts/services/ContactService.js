@@ -1,20 +1,3 @@
-//  contactApp.factory('ContactService', function($http, $q){
-//     return{
-//         getData: function(){
-//             var deferred = $q.defer();
-//             $http({method: 'GET', url: 'contacts.json'}).
-//                 then (function success(response) {
-//                         deferred.resolve(response.data.contacts);
-//                     }, function error(response) {
-//                         deferred.reject(response.status);
-//                     }
-//                 );
-              
-//             return deferred.promise;
-//         }
-//     }
-// })
-
 (function(){
     'use strict';
 
@@ -22,56 +5,9 @@
         .module('ContactApp')
         .service('ContactService', ContactService)
 
-    ContactService.$inject = ['$q'];
+    ContactService.$inject = ['$q','$http'];
 
-    function ContactService($q) {
-
-        var contactsArray = [
-            {
-                "id": "1",
-                "firstName": "Alex",
-                "secondName": "Karmaz",
-                "dob": "01.01.1999",
-                "phone": "7624300",
-                "gender": "male",
-                "relationship": "Home",
-                "description": "fdf",
-                "isFavorite": true
-            },
-            {
-                "id": "2",
-                "firstName": "Dima",
-                "secondName": "Ignatenko",
-                "dob": "01.01.1999",
-                "phone": "5882918",
-                "gender": "male",
-                "relationship": "Work",
-                "description": "fdf",
-                "isFavorite": true
-            },
-            {
-                "id": "3",
-                "firstName": "John",
-                "secondName": "Smit",
-                "dob": "01.01.1999",
-                "phone": "5565373",
-                "gender": "male",
-                "relationship": "Others",
-                "description": "fdf",
-                "isFavorite": false
-            },
-            {
-                "id": "4",
-                "firstName": "Smith",
-                "secondName": "John",
-                "dob": "01.01.1999",
-                "phone": "3392755",
-                "gender": "female",
-                "relationship": "Home",
-                "description": "fdf",
-                "isFavorite": false
-            }
-        ];
+    function ContactService($q, $http) {
 
         this.getAllContacts = getAllContacts;
         this.deleteContact = deleteContact;
@@ -79,53 +15,96 @@
         this.getContact = getContact;
         this.updateContact = updateContact;
         this.removeSelected = removeSelected;
+        this.changeFavorite = changeFavorite;
+        var contactsArray = [];
 
-        function getAllContacts(){
-            return $q.resolve(contactsArray);
+        function getAllContacts () {
+            var deferred = $q.defer();
+            $http({ method: 'GET', url: 'http://localhost:64979/api/Contacts' }).
+                then(function success(response) {
+                    deferred.resolve(response.data);
+                }, function error(response) {
+                    deferred.reject(response.status);
+                }
+                );
+
+            return deferred.promise;
         }
 
-        function deleteContact(id) {
-            for (var i = contactsArray.length - 1; i >= 0; i--) {
-                if (contactsArray[i].id == id) {
-                    contactsArray.splice(i, 1);
-                    break;
+        function changeFavorite (id) {
+            var deferred = $q.defer();
+            $http({ method: 'POST', url: 'http://localhost:64979/api/FavoriteContacts/'  + id }).
+                then(function success(response) {
+                    deferred.resolve(response.data);
+                }, function error(response) {
+                    deferred.reject(response.status);
                 }
-            }
+                );
+
+            return deferred.promise;
+        }
+
+        function deleteContact(array) {
+
+             var deferred = $q.defer();
+            $http({ method: 'POST', url: 'http://localhost:64979/api/Contacts', data: JSON.stringify(array)},).
+                then(function success(response) {
+                     deferred.resolve(response.status);
+                }, function error(response) {
+                     deferred.reject(response.status);
+                }
+                );
+               
+             return deferred.promise;
         }
 
         function createContact(contact){
-            var lastContactId = contactsArray[contactsArray.length - 1].id;
-            contact.id = Number(lastContactId) + 1;
-            contactsArray.push(contact);
+            var deferred = $q.defer();
+            $http({ method: 'POST', url: 'http://localhost:64979/api/Contacts/1', data: contact},).
+                then(function success(response) {
+                     deferred.resolve(response.status);
+                }, function error(response) {
+                     deferred.reject(response.status);
+                }
+                );
+                return deferred.promise;
         }
 
         function getContact(id){
-            var contact;
-            for(var i=0; i<contactsArray.length; i++){
-                if(contactsArray[i].id == id){
-                    contact =  contactsArray[i];
-                    break;
+            var deferred = $q.defer();
+            $http({ method: 'GET', url: 'http://localhost:64979/api/Contacts/' + id }).
+                then(function success(response) {
+                    response.data.Dob = new Date(response.data.Dob);
+                    deferred.resolve(response.data);
+                }, function error(response) {
+                    deferred.reject(response.status);
                 }
-            }
-            contact = angular.copy(contact);
-            contact.dob = new Date(contact.dob);
-            return contact;
+                );
+
+            return deferred.promise;
         }
 
-        function updateContact(contact){
-            for(var i=0; i<contactsArray.length; i++){
-                if(contactsArray[i].id == contact.id){
-                    contactsArray[i] = contact;
+        function updateContact(id,contact){
+            var deferred = $q.defer();
+            $http({ method: 'PUT', url: 'http://localhost:64979/api/Contacts/' + id, data: contact},).
+                then(function success(response) {
+                     deferred.resolve(response.status);
+                }, function error(response) {
+                     deferred.reject(response.status);
                 }
-            }
+                );
+                return deferred.promise;
         }
 
         function removeSelected(selectedArray){
+            var array = [];
             for (var key in selectedArray) {
                 if (selectedArray[key] == true) {
-                    deleteContact(key);
+                    array.push(key);
                 }
             }
+
+            return deleteContact(array);
         }
     }
 })();

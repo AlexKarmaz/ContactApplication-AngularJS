@@ -4,9 +4,9 @@
     angular.module('ContactApp')
         .controller('ContactButtons', ContactButtons)
 
-    ContactButtons.$inject = ['ContactService','$location'];
+    ContactButtons.$inject = ['ContactService','$location','$route'];
 
-    function ContactButtons(ContactService,$location) {
+    function ContactButtons(ContactService,$location,$route) {
         var $ctrl = this;
 
         $ctrl.isAnyMark = function () {
@@ -14,7 +14,10 @@
         }
 
         $ctrl.removeSelected = function(){
-            ContactService.removeSelected($ctrl.selected);
+            var promiseObj = ContactService.removeSelected($ctrl.selected);
+            promiseObj.then(function (value) { $ctrl.result = value;
+                if($ctrl.result==200){$route.reload();}
+             });
         }
 
         $ctrl.addNew = function () {

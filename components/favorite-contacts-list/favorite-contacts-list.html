@@ -3,9 +3,9 @@
  <div>
     <div class="row cardContainer">
         <div class="span3 card" data-ng-repeat="contact in $ctrl.favoriteContacts | filter:contact.isFavorite=true">
-            <button class="btn close cardClose" data-ng-click="contact.isFavorite=false">&times;</button>
-            <div class="cardHeader">{{contact.firstName + ' ' + contact.secondName}}</div>
-            <div class="cardBody">{{contact.phone}}</div>
+            <button class="btn close cardClose" data-ng-click="$ctrl.changeFavorite(contact.Id)">&times;</button>
+            <div class="cardHeader">{{contact.FirstName + ' ' + contact.SecondName}}</div>
+            <div class="cardBody">{{contact.Phone}}</div>
         </div>
     </div>
 </div> 

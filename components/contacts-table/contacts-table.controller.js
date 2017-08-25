@@ -11,9 +11,9 @@
     
         var promiseObj = ContactService.getAllContacts();
         promiseObj.then(function (value) { $ctrl.contacts = value; });
-
-        $ctrl.deleteContact = function (id) {
-            ContactService.deleteContact(id);
-        };
+        
+        $ctrl.changeFavorite = function (id){
+            ContactService.changeFavorite(id);
+        }
     }
 })();
